@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Header, Table} from 'semantic-ui-react';
 
+
 class TableComponent2 extends Component{
   constructor(){
     super();
@@ -10,7 +11,9 @@ class TableComponent2 extends Component{
       type_array: [],
       filteredData: [],
       flag: false,
-      col_size : null
+      col_size : null,
+      body_function : null,
+      test_function : null
     }
   }
 
@@ -24,10 +27,6 @@ class TableComponent2 extends Component{
     this.state.chartData = this.props.data;
 
 
-    // for(let i  = 0; i < this.state.chartData.length; ++i){
-    //   console.log(this.state.chartData[i]);
-    // }
-
     var label_array = [];
     var unpopulated_array = [];
     var column_name_array = [];
@@ -37,12 +36,11 @@ class TableComponent2 extends Component{
     //find all the columns
     for(let i = 0; i < this.state.chartData.length; ++i){
       if(!column_name_array.includes(this.state.chartData[i].type)){
-        console.log(this.state.chartData[i].type);
+
         column_name_array.push(this.state.chartData[i].type);
       }
     }
 
-    console.log(column_name_array);
 
     column_size = column_name_array.length;
 
@@ -72,9 +70,6 @@ class TableComponent2 extends Component{
 
     //dynamically clean slots
 
-    // for(let i = 0; i < unpopulated_array.length; ++i){
-    //   console.log(unpopulated_array[i]);
-    // }
 
 
 /*
@@ -118,11 +113,55 @@ class TableComponent2 extends Component{
     }
 
 
-    // for(let i = 0; i < unpopulated_array.length; ++i){
-    //   console.log(unpopulated_array[i]);
-    // }
 
     this.state.filteredData = unpopulated_array;
+
+    var builder_function = function(it){
+
+      // Object.keys(it).forEach(item=>{
+      //   return(
+      //     <Table.HeaderCell>{it[item]}</Table.HeaderCell>
+      //   );
+      // });
+
+      Object.keys(it).map((sub_iterator,sub_idx)=>{
+        console.log(sub_iterator)
+        console.log(it[sub_iterator])
+        return(
+          <Table.HeaderCell>{it[sub_iterator]}</Table.HeaderCell>
+        );
+      })
+    }
+
+    var builder_function2 = function(it){
+
+      // Object.keys(it).forEach(item=>{
+      //   return(
+      //     <Table.HeaderCell>{it[item]}</Table.HeaderCell>
+      //   );
+      // });
+
+      var value_array = []
+
+      for(var val in it){
+        value_array.push(it[val]);
+      }
+
+      // console.log(value_array);
+
+      return(
+        <div>   //FIXME::Table Body mismatch Table Header 
+          {
+            value_array.map((iterator,idx)=>{
+              return(
+                <Table.HeaderCell textAlign='center' width='10000'>{iterator}</Table.HeaderCell>
+              )
+            })
+          }
+        </div>
+      )
+    }
+
 
 
     this.setState(
@@ -130,12 +169,17 @@ class TableComponent2 extends Component{
         type_array: column_name_array,
         filteredData: unpopulated_array,
         flag : true,
-        col_size : column_size
+        col_size : column_size,
+        body_function : builder_function,
+        test_function : builder_function2
       }
     );
 
 
   }
+
+
+
 
   render(){
     if(!this.state.flag){
@@ -155,8 +199,6 @@ class TableComponent2 extends Component{
               </Table.HeaderCell>
             </Table.Row>
 
-            {console.log(this.state)}
-
             <Table.Row>
             <Table.HeaderCell textAlign='center'>         </Table.HeaderCell>
             {
@@ -171,7 +213,20 @@ class TableComponent2 extends Component{
           </Table.Header>
 
           <Table.Body>
-
+            {console.log(this.state.filteredData)}
+            {
+              this.state.filteredData.map((iterator,idx)=>{
+                return(
+                  <div>
+                    <Table.Row>
+                      {
+                        this.state.test_function(iterator)
+                      }
+                    </Table.Row>
+                  </div>
+                )
+              })
+            }
           </Table.Body>
 
         </Table>
@@ -180,6 +235,7 @@ class TableComponent2 extends Component{
   }
   }
 }
+
 
 
 export default TableComponent2
