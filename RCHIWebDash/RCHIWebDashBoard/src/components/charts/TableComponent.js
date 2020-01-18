@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Header, Table} from 'semantic-ui-react';
 
+
 class TableComponent extends Component{
   constructor(){
     super();

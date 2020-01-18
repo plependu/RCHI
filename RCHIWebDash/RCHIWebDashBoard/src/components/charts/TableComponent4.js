@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Header, Table} from 'semantic-ui-react';
 
 
-class TableComponent2 extends Component{
+class TableComponent4 extends Component{
   constructor(){
     super();
 
@@ -16,10 +16,6 @@ class TableComponent2 extends Component{
       test_function : null
     }
   }
-
-
-
-
 
   componentDidMount(){
     //Arrange Data
@@ -54,7 +50,7 @@ class TableComponent2 extends Component{
     //fill unpopulated_array
     for(let i = 0; i < label_array.length; ++i){
       var temp = {
-        "rowName": label_array[i]
+        "0": label_array[i] //This is the rowName, because of reordering,this must be set to 0 to handle columns that are numbers
       }
       unpopulated_array.push(temp);
     }
@@ -68,36 +64,10 @@ class TableComponent2 extends Component{
       }
     }
 
-    //dynamically clean slots
-
-
-
-/*
-    //populate unpopulated_arrays
-    for(let i = 0; i < this.state.chartData.length; ++i){
-      //check if in list1
-      if(label_array.includes(this.state.chartData[i].subpopulation)){
-        //find it in list2
-
-        for(let j = 0; j < unpopulated_array.length; ++j){
-          if(this.state.chartData[i].subpopulation == unpopulated_array[j].rowName){
-            //check year
-            if(this.state.chartData[i].year == this.state.year1){
-              unpopulated_array[j].value1 = this.state.chartData[i].total;
-            }
-            else if(this.state.chartData[i].year == this.state.year2){
-              unpopulated_array[j].value2 = this.state.chartData[i].total;
-            }
-          }
-        }
-      }
-    }
-  */
-
     //Populate the unpopulated array
     for(let i = 0; i < unpopulated_array.length; ++i){
       for(let k = 0; k < this.state.chartData.length; ++k){
-        if(unpopulated_array[i].rowName == this.state.chartData[k].subpopulation){
+        if(unpopulated_array[i]["0"] == this.state.chartData[k].subpopulation){
           unpopulated_array[i][this.state.chartData[k].category] = this.state.chartData[k].total;
         }
       }
@@ -118,11 +88,6 @@ class TableComponent2 extends Component{
 
     var builder_function = function(it){
 
-      // Object.keys(it).forEach(item=>{
-      //   return(
-      //     <Table.HeaderCell>{it[item]}</Table.HeaderCell>
-      //   );
-      // });
 
       Object.keys(it).map((sub_iterator,sub_idx)=>{
         console.log(sub_iterator)
@@ -133,13 +98,9 @@ class TableComponent2 extends Component{
       })
     }
 
-    var builder_function2 = function(it){ //Needs to be fixed
+    var builder_function2 = function(it){
 
-      // Object.keys(it).forEach(item=>{
-      //   return(
-      //     <Table.HeaderCell>{it[item]}</Table.HeaderCell>
-      //   );
-      // });
+
 
       var value_array = []
 
@@ -147,7 +108,6 @@ class TableComponent2 extends Component{
         value_array.push(it[val]);
       }
 
-      // console.log(value_array);
 
       return(
 
@@ -162,7 +122,6 @@ class TableComponent2 extends Component{
 
 
 
-
     this.setState(
       {
         category_array: column_name_array,
@@ -174,7 +133,7 @@ class TableComponent2 extends Component{
       }
     );
 
-
+    console.log(this.state.filteredData);
   }
 
 
@@ -235,4 +194,4 @@ class TableComponent2 extends Component{
 
 
 
-export default TableComponent2
+export default TableComponent4

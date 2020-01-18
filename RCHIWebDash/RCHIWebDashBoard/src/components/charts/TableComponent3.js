@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Header, Table} from 'semantic-ui-react';
 
 
-class TableComponent2 extends Component{
+class TableComponent3 extends Component{
   constructor(){
     super();
 
@@ -33,7 +33,7 @@ class TableComponent2 extends Component{
     var column_size = 0;
 
 
-    //find all the columns
+    //find all the columns (COLUMNS)
     for(let i = 0; i < this.state.chartData.length; ++i){
       if(!column_name_array.includes(this.state.chartData[i].category)){
 
@@ -44,7 +44,7 @@ class TableComponent2 extends Component{
 
     column_size = column_name_array.length;
 
-    //fill label_array
+    //fill label_array (ROWS)
     for(let i = 0; i < this.state.chartData.length; ++i){
       if(!label_array.includes(this.state.chartData[i].subpopulation)){
         label_array.push(this.state.chartData[i].subpopulation);
@@ -68,31 +68,6 @@ class TableComponent2 extends Component{
       }
     }
 
-    //dynamically clean slots
-
-
-
-/*
-    //populate unpopulated_arrays
-    for(let i = 0; i < this.state.chartData.length; ++i){
-      //check if in list1
-      if(label_array.includes(this.state.chartData[i].subpopulation)){
-        //find it in list2
-
-        for(let j = 0; j < unpopulated_array.length; ++j){
-          if(this.state.chartData[i].subpopulation == unpopulated_array[j].rowName){
-            //check year
-            if(this.state.chartData[i].year == this.state.year1){
-              unpopulated_array[j].value1 = this.state.chartData[i].total;
-            }
-            else if(this.state.chartData[i].year == this.state.year2){
-              unpopulated_array[j].value2 = this.state.chartData[i].total;
-            }
-          }
-        }
-      }
-    }
-  */
 
     //Populate the unpopulated array
     for(let i = 0; i < unpopulated_array.length; ++i){
@@ -235,4 +210,4 @@ class TableComponent2 extends Component{
 
 
 
-export default TableComponent2
+export default TableComponent3
