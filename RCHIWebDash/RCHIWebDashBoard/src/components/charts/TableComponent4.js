@@ -184,7 +184,6 @@ class TableComponent4 extends Component{
               })
             }
           </Table.Body>
-
         </Table>
       </div>
     )
