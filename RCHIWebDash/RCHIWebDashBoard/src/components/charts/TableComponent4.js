@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Header, Table} from 'semantic-ui-react';
-
+import '../css/table.css';
 
 class TableComponent4 extends Component{
   constructor(){
@@ -152,7 +152,7 @@ class TableComponent4 extends Component{
     else{
     return(
       <div style = {this.state.mystyle}>
-        <Table Cell Structured>
+        <Table Cell Structured style={{ borderWidth: "1px" }}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell colSpan={this.state.col_size+1} textAlign='center'>
