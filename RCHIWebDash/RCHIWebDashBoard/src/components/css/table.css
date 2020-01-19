@@ -1,8 +1,4 @@
 table, th, td {
   border: 1px solid black !important;
-}
-ui table{
-  width: 1000px;
-  padding: 30px;
-  margin: auto;
+  padding: 12px;
 }

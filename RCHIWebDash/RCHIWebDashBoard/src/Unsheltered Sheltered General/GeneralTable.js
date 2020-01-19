@@ -802,13 +802,6 @@ export default class GeneralTable extends Component{
             />
 
 
-            <h1>Table Version 3</h1>
-            <TableComponent3
-              data = {this.table2data}
-              tableName = "General Sheltered and Unsheltered Table"
-              width = {700}
-            />
-
             <h1>Table Version 4</h1>
             <TableComponent4
               data = {this.table2data}
