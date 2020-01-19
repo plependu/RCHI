@@ -25,7 +25,7 @@ div {
     padding: 0vw 0vw 0vw 3vw;
 }
 
-th, td { border: 1px solid black }
+th, td { border: 1px solid black !important }
 
 .graphBoundsInput{
     right: 3vw;

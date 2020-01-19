@@ -13,7 +13,8 @@ class TableComponent4 extends Component{
       flag: false,
       col_size : null,
       body_function : null,
-      test_function : null
+      test_function : null,
+      mystyle : null
     }
   }
 
@@ -110,16 +111,20 @@ class TableComponent4 extends Component{
 
 
       return(
-
             value_array.map((iterator,idx)=>{
               return(
                 <Table.HeaderCell textAlign='center' width='10000'>{iterator}</Table.HeaderCell>
               )
             })
-
       )
     }
 
+    //Styling
+    var my_style = {
+      width: this.props.width,
+      padding: "30px",
+      margin: "auto"
+    }
 
 
     this.setState(
@@ -129,7 +134,8 @@ class TableComponent4 extends Component{
         flag : true,
         col_size : column_size,
         body_function : builder_function,
-        test_function : builder_function2
+        test_function : builder_function2,
+        mystyle : my_style
       }
     );
 
@@ -145,7 +151,7 @@ class TableComponent4 extends Component{
     }
     else{
     return(
-      <div style = {{width: this.props.width}}>
+      <div style = {this.state.mystyle}>
         <Table Cell Structured>
           <Table.Header>
             <Table.Row>
@@ -174,13 +180,24 @@ class TableComponent4 extends Component{
             {console.log(this.state.filteredData)}
             {
               this.state.filteredData.map((iterator,idx)=>{
-                return(
-                    <Table.Row>
-                      {
-                        this.state.test_function(iterator)
-                      }
-                    </Table.Row>
-                )
+                if(idx%2==1){
+                  return(
+                      <Table.Row>
+                        {
+                          this.state.test_function(iterator)
+                        }
+                      </Table.Row>
+                  )
+                }
+                else{
+                  return(
+                      <Table.Row bgcolor="lightgray">
+                        {
+                          this.state.test_function(iterator)
+                        }
+                      </Table.Row>
+                  )
+                }
               })
             }
           </Table.Body>
