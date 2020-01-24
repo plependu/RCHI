@@ -768,6 +768,165 @@ export default class GeneralTable extends Component{
         },
       ]
 
+      this.supervisory_district_1_subpopulation_statistics_data = [
+        {
+          "id":1,
+          "subpopulation": "Total Count",
+          "category":"2018",
+          "total":290
+        },
+        {
+          "id":2,
+          "subpopulation": "Total Count",
+          "category":"2019",
+          "total":362
+        },
+        {
+          "id":3,
+          "subpopulation": "Interviewed",
+          "category":"2018",
+          "total":207
+        },
+        {
+          "id":4,
+          "subpopulation":"Interviewed",
+          "category":"2019",
+          "total":221
+        },
+        {
+          "id":5,
+          "subpopulation":"Observed",
+          "category":"2018",
+          "total":83
+        },
+        {
+          "id":6,
+          "subpopulation":"Observed",
+          "category":"2019",
+          "total":141
+        },
+        {
+          "id":7,
+          "subpopulation":"Adults(>24)",
+          "category":"2018",
+          "total":231
+        },
+        {
+          "id":8,
+          "subpopulation":"Adults(>24)",
+          "category":"2019",
+          "total":273
+        },
+        {
+          "id":9,
+          "subpopulation":"Youth(18-24)",
+          "category":"2018",
+          "total":231
+        },
+        {
+          "id":10,
+          "subpopulation":"Youth(18-24)",
+          "category":"2019",
+          "total":46
+        },
+        {
+          "id":11,
+          "subpopulation":"Children(<18)",
+          "category":"2018",
+          "total":0
+        },
+        {
+          "id":12,
+          "subpopulation":"Children(<18)",
+          "category":"2019",
+          "total":6
+        },
+        {
+          "id":13,
+          "subpopulation":"Unknown Age",
+          "category":"2018",
+          "total":22
+        },
+        {
+          "id":14,
+          "subpopulation":"Unknown Age",
+          "category":"2019",
+          "total":37
+        },
+        {
+          "id":15,
+          "subpopulation":"Male",
+          "category":"2018",
+          "total":192
+        },
+        {
+          "id":16,
+          "subpopulation":"Male",
+          "category":"2019",
+          "total":239
+        },
+        {
+          "id":17,
+          "subpopulation":"Female",
+          "category":"2018",
+          "total":86
+        },
+        {
+          "id":18,
+          "subpopulation":"Female",
+          "category":"2019",
+          "total":88
+        },
+        {
+          "id":19,
+          "subpopulation":"Transgender",
+          "category":"2018",
+          "total":1
+        },
+        {
+          "id":20,
+          "subpopulation":"Transgender",
+          "category":"2019",
+          "total":6
+        },
+        {
+          "id":21,
+          "subpopulation":"Gender Non Conforming",
+          "category":"2018",
+          "total":1
+        },
+        {
+          "id":22,
+          "subpopulation":"Gender Non Conforming",
+          "category":"2019",
+          "total":1
+        },
+        {
+          "id":23,
+          "subpopulation":"Doesnt Know / Not Sure",
+          "category":"2018",
+          "total":12
+        },
+        {
+          "id":24,
+          "subpopulation":"Doesnt Know / Not Sure",
+          "category":"2019",
+          "total":28
+        },
+        {
+          "id":25,
+          "subpopulation":"Veterans",
+          "category":"2018",
+          "total":18
+        },
+        {
+          "id":26,
+          "subpopulation":"Veterans",
+          "category":"2019",
+          "total":16
+        }
+      ]
+
     }
 
 
@@ -808,18 +967,7 @@ export default class GeneralTable extends Component{
               tableName = "General Sheltered and Unsheltered Table"
               width = {700}
             />
-            <br/>
-            <TableComponent4
-              data = {this.test_data}
-              tableName = "Test Table Name 1"
-              width = {1000}
-            />
-            <br/>
-            <TableComponent4
-              data = {this.test_data2}
-              tableName = "Test Table Name 2"
-              width = {500}
-            />
+
 
             <br/>
             <TableComponent4
@@ -837,10 +985,11 @@ export default class GeneralTable extends Component{
 
             <br/>
             <TableComponent4
-              data = {this.test_data3}
-              tableName = "Test Table 3"
+              data = {this.supervisory_district_1_subpopulation_statistics_data}
+              tableName = "Subpopulation Statistics (D1)"
               width = {700}
             />
+
 
         </div>
 
