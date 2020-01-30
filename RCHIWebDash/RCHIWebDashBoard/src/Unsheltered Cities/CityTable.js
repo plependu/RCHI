@@ -6,6 +6,7 @@ import PieChart from "../components/charts/PieChart";
 import PieGraph from "../components/charts/PieGraph";
 import Number from "../components/Numbers/Number";
 import Total from '../components/Numbers/Total'
+import Mental from "../components/Numbers/Mental";
 
 export default class CityTable extends Component{
     constructor(props){
@@ -69,6 +70,7 @@ export default class CityTable extends Component{
                 <Total height = {400}
                         url = {'http://127.0.0.1:8000/api/SubpopulationsByCity2019/?search=Age+' + city}
                 />
+
 
 
 
