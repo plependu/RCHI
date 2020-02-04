@@ -56,9 +56,7 @@ export default class GeneralPieChart extends React.Component {
 
         let i;
         const filterData = this.state.mydata.filter(index => (index.id !== "Total"))
-        console.log(filterData)
         this.state.mydata = filterData;
-        console.log(this.state.mydata)
         for (i = 0; i < this.state.mydata.length; i++) {
             this.state.mydata[i].value = this.state.mydata[i].total
             this.state.mydata[i].id = this.state.mydata[i].subpopulation

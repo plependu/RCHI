@@ -528,7 +528,7 @@ export default class GeneralTable extends Component{
             url = 'http://127.0.0.1:8000/api/GeneralTableSubpopulations2019/?search=Race'
             indexBy = "subpopulation"
             keys = {["interview", "observation"]}
-
+></BarGraph>
 
 
             <PieGraph height = {1000}
@@ -582,8 +582,8 @@ export default class GeneralTable extends Component{
               data = {this.table2data}
               tableName = "Insert Table 2 Name here"
               width = {700}
-
             />
+
 
 
         </div>
