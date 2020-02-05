@@ -6,6 +6,10 @@ import PieChart2 from '../charts/PieChart2'
 import TableComponent2 from '../charts/TableComponent2'
 import TableComponent from '../charts/TableComponent'
 import { Header, Table} from 'semantic-ui-react';
+import Mental from "../Numbers/Mental";
+import PTSD from "../Numbers/PTSD";
+import Substance from "../Numbers/Substance";
+import Physical from "../Numbers/Physical";
 
 import '../css/dash.css';
 
@@ -315,17 +319,18 @@ export default class Dashboard extends React.Component {
             <div className="row dash-row">
 
             <div className="col-md dash-col-reg">
-                <p className="component-header">18%</p>
-                <p>have mental health issues</p>    
-                <br/>
-                <p className="component-header">24%</p>
-                <p>have substance abuse</p>
-                <br/>
-                <p className="component-header">18%</p>
-                <p>have physical disability</p>
-                <br/>
-                <p className="component-header">18%</p>
-                <p>experience PTSD</p>    
+              <Mental height = {50}
+                      url = {'http://127.0.0.1:8000/api/Trends/?search=2019'}
+              />
+              <PTSD height = {50}
+                    url = {'http://127.0.0.1:8000/api/Trends/?search=2019'}
+              />
+              <Substance height = {50}
+                         url = {'http://127.0.0.1:8000/api/Trends/?search=2019'}
+              />
+              <Physical height = {50}
+                        url = {'http://127.0.0.1:8000/api/Trends/?search=2019'}
+              />
             
             </div>
             
