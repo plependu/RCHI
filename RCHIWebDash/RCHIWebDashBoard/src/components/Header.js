@@ -4,15 +4,15 @@ import { Link, withRouter } from 'react-router-dom';
 
 // TO ADD A LINK JUST A NAME AND LINK IN LINKS OBJECT
 const links = [
-  { name: 'Map',                          link: '/' },
+ 
   { name: 'General Table',                link: '/GeneralTable' },
   { name: 'Unsheltered vs Sheltered',     link: '/UnshelteredvsSheltered' },
+  { name: 'Newly Homeless',               link: '/NewlyHomeless' },
+  { name: 'Unsheltered Trends',           link: '/UnshelteredTrends' },
   { name: 'Supervisorial Districts',      link: '/SupervisorialDistricts' },
   { name: 'divider'},
-  { name: 'Unsheltered Trends',           link: '/UnshelteredTrends' },
   { name: '/CityBreakdown',               link: '/CityBreakdown' },
-  { name: 'divider'},
-  { name: 'Newly Homeless',               link: '/NewlyHomeless' },
+  { name: 'Map',                          link: '/' },
 ]
 
 class Header extends React.Component{

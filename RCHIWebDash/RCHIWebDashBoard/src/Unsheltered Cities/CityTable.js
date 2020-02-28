@@ -277,7 +277,14 @@ export default class CityTable extends Component{
     
         return(
             <div>
-                {this.state.rendered ? this.runGraphs() : 0}
+                {this.state.rendered ? this.runGraphs() : <div>
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>}
             </div>
         )
     }
