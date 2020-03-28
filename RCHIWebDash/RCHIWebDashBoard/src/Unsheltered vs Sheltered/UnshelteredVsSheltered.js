@@ -168,12 +168,19 @@ export default class UnsheleteredVsSheltered extends Component{
                         />
                     </div>
                     <div className="svu-r2-h25">
-                      <span className="component-header"><div>Sheltered Household</div>Composition</span>>
+                    <p className="component-header">Sheltered Household Composition</p>
+                    <TableComponent4
+                      tableName = "Sheltered Household Composition"
+                      data = {this.state.Tables[router.activeYear + "/GeneralTableSubpopulationsSheltered"]["Households"]}
+                      header = {false}
+                      height = {"100%"}
+                    />
+                      {/* <span className="component-header"><div>Sheltered Household</div>Composition</span>>
                       <PieChart2
                         data = {filterList(this.state.Tables[router.activeYear + "/GeneralTableSubpopulationsSheltered"]["Households"],"subpopulation", ["Total"])}
                         footer = {false}
                         margin = {{ top: 60, right: 0, bottom: 25, left: 0 }}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
