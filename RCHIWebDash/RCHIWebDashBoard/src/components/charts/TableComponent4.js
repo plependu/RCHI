@@ -49,13 +49,16 @@ class TableComponent4 extends Component{
       //1)Create a new array with percentages
       //2)Merge new array with the original array
       //3)Reassign the data with the merged array
+      console.log(this.state.chartData)
 
       //Grab Total
       var total = 0
 
       //Grab the totals of the whole array of JSONS
       for(let i = 0; i < this.state.chartData.length; ++i){
-        total+=this.state.chartData[i].total
+        if (String(this.state.chartData[i].subpopulation) !== "Total"){
+          total+=this.state.chartData[i].total
+        }
       }
 
       //Initialize second array
@@ -79,6 +82,11 @@ class TableComponent4 extends Component{
 
         percent_str = percent_str.concat('%')
 
+        //Special Case for total row
+        if(percent_str == "1000%"){
+          percent_str = "100%"
+        }
+
         //Construct new JSONS
         //Add new JSONS to the new array
         var new_key_name = 'percentage'
@@ -88,9 +96,10 @@ class TableComponent4 extends Component{
 
         new_json['id'] = k.toString()
         new_json['total']= percent_str
-        new_json['_type']= 'z'
+        new_json['_type']= '%'
         new_json['category']= "Living Situations"
         new_json['subpopulation']=this.state.chartData[k].subpopulation
+        new_json['year'] = '%'
 
         new_array.push(new_json)
       }
