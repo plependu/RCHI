@@ -49,7 +49,6 @@ class TableComponent4 extends Component{
       //1)Create a new array with percentages
       //2)Merge new array with the original array
       //3)Reassign the data with the merged array
-      console.log(this.state.chartData)
 
       //Grab Total
       var total = 0
