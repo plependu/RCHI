@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Menu, Segment, Responsive, Dropdown } from "semantic-ui-react";
+import React from "react";
 
 class errorPage extends React.Component {
   render() {

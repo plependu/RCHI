@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TotalGeneral = (props) => {
-    let {data, height, subpopulation, header} = props
+    let {data, height, subpopulation} = props
 
     const totalUnsheltered = data[subpopulation].total
 

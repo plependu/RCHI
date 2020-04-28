@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Header, Table} from 'semantic-ui-react'
+import { Table} from 'semantic-ui-react'
 import {router} from '../../components/Utilities/constants/routing'
 import TableComponent4 from '../../components/charts/TableComponent4'
-import {  filterTypeAndYear } from '../../components/Utilities/ListManipulation/filter'
 
 //CLEAN
 

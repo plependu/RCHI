@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Text} from 'react'
 import { ResponsiveBar } from '@nivo/bar';
 //import bar graph component
 const data = [

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Select from 'react-select'
 import { Grid, Dropdown } from 'semantic-ui-react';
 
 import './CityTables.css'
-import { citynames, base, SubPopHeaders, Catergories, Titles } from './constants';
+import { citynames, base } from './constants';
 
 export default class CityDashboard extends Component {
     constructor(props){

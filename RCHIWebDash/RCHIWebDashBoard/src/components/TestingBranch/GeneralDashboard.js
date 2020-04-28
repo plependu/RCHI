@@ -1,9 +1,8 @@
 import LineGraph from '../charts/LineGraph';
 import BarGraph from '../../components/TestingBranch/BarGraph'
-import BarChart from '../../components/reformatedCharts/BarChart'
 import PieChart2 from '../charts/PieChart2'
 import TableComponent4 from '../charts/TableComponent4'
-import { Header, Table, Segment,Container,Grid, Label} from 'semantic-ui-react';
+import { Header, Table, Segment, Label} from 'semantic-ui-react';
 import {pieDataManiTotal , pieDataManiInterview }  from '../Utilities/ChartDataManipulation/pieDataManipulation'
 
 import React, {Component} from 'react';

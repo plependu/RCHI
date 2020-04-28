@@ -5,7 +5,6 @@ import DoughnutChart from '../charts/DoughnutChart'
 import LineChart from '../charts/LineChart';
 import BarChart from '../charts/BarChart';
 import { Row, Col } from 'antd';
-import TableComponent4 from '../charts/TableComponent4'
 
 import '../css/GeneralDash.css'
 

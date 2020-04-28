@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ResponsiveBar } from '@nivo/bar';
-import { remove, subset } from '../Utilities/ListManipulation/filter'
+import { subset } from '../Utilities/ListManipulation/filter'
 import { colors } from '../Utilities/styling/colors'
 
 export default class CategoryBar extends Component{

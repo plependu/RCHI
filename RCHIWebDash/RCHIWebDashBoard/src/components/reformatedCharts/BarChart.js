@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import {Text} from 'react'
+import React from 'react'
 import { colors } from "../Utilities/styling/colors"
 import { ResponsiveBar } from '@nivo/bar';
 import {Header} from 'semantic-ui-react'

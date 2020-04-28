@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import '../Menu.css';
-import GraphForm from "./GraphForm.js";
 import Menu from './Menu';
 
 export default class RowMenu extends Component {

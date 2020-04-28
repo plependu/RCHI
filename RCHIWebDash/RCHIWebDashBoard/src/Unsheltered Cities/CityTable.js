@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // from packages
-import { Header, Segment, Grid, Container } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import Select from "react-select";
 
 // components

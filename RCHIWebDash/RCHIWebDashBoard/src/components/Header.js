@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Menu, Segment, Responsive, Dropdown } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 

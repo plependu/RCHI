@@ -1,6 +1,4 @@
 import React from 'react';
-import {ResponsivePie} from "@nivo/pie";
-import { ResponsiveBar } from '@nivo/bar';
 
 export default class Change extends React.Component {
 

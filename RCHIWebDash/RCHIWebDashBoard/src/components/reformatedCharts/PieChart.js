@@ -1,4 +1,4 @@
-import React,  {useState} from 'react';
+import React from 'react';
 import {ResponsivePie} from "@nivo/pie";
 import {Header} from 'semantic-ui-react'
 

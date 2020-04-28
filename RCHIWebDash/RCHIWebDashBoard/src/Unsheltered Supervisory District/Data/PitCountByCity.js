@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Header, Table} from 'semantic-ui-react'
 import TableComponent4 from '../../components/charts/TableComponent4'
 import {router} from '../../components/Utilities/constants/routing'
-import { filter } from '../../components/Utilities/ListManipulation/filter';
 
 //CLEAN
 

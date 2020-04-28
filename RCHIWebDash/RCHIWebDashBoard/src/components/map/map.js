@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Map, TileLayer, Marker, Popup, GeoJSON, LayersControl } from 'react-leaflet';
+import { Map, TileLayer, GeoJSON, LayersControl } from 'react-leaflet';
 import axios from 'axios';
-import { Dimmer, Loader } from 'semantic-ui-react';
 
 import './map.css';
 import SupervisorDistricts from './json/Supervisor_Districts.json'
@@ -9,7 +8,6 @@ import Cities from './json/Cities.json'
 import County from './json/County.json'
 
 import { remove, subset } from '../Utilities/ListManipulation/filter'
-import { colors } from '../Utilities/styling/colors'
 import { countyColor, backgroundStroke, lat, lng, subPopLink, cityNames, raceCategories, genderCategories, defaultZoom  } from './constants';
 import CategoryBar from './CategoryBar'
 

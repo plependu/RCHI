@@ -7,7 +7,7 @@ import PieChart2 from '../components/charts/PieChart2';
 import BarGraph from '../components/TestingBranch/BarGraph';
 import BarChart from '../components/reformatedCharts/BarChart'
 import PieChart from '../components/reformatedCharts/PieChart'
-import {Header,Segment, Grid, Container, GridColumn} from 'semantic-ui-react'
+import {Header,Segment, Grid, Container} from 'semantic-ui-react'
 import {filterList} from '../components/Utilities/ListManipulation/filter'
 import { changeVals2020 } from '../components/Utilities/ListManipulation/changeValue'
 import { pieDataManiTotal } from '../components/Utilities/ChartDataManipulation/pieDataManipulation'

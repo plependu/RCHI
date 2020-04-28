@@ -4,7 +4,6 @@ import { Switch, Route } from "react-router-dom";
 import GeneralDash from "./DemoDashboards/GeneralDash";
 import VeteranDash from "./DemoDashboards/VeteranDash";
 import EditableCharts from "./EditableChartsDash/EditableCharts";
-import SupervisorialDistricts from "./SupervisoralDistrictDash/SupervisorialDistricts";
 import CityTables from "./CityTables/CityTables";
 import DIYChart from "./DIYChart/DIYChart";
 import TabChartDash from "./DemoDashboards/TabChartDash";
@@ -19,7 +18,6 @@ import GeneralDashboard from "../components/TestingBranch/GeneralDashboard";
 import APITest from "./APITests/ApiTest";
 
 import Sandbox from "./TestingBranch/Sandbox";
-import GeneralPieChart from "./charts/PieChart";
 import GeneralTable from "../Unsheltered Sheltered General/GeneralTable";
 import CityTable from "../Unsheltered Cities/CityTable";
 import errorPage from "./404Page";

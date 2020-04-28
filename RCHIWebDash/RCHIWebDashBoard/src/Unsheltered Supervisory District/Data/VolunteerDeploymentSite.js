@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Header, Table, Container, Tab } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import {router} from '../../components/Utilities/constants/routing'
 import TableComponent4 from '../../components/charts/TableComponent4'
 

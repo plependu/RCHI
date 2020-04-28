@@ -1,8 +1,6 @@
 import React from 'react';
 import truncate from 'truncate-html'
 import {ResponsivePie} from "@nivo/pie";
-import { ResponsiveBar } from '@nivo/bar';
-import { pieDataManiInterview } from '../Utilities/ChartDataManipulation/pieDataManipulation'
 
 import { colors } from '../Utilities/styling/colors';
 

@@ -4,8 +4,6 @@ import {router} from '../../components/Utilities/constants/routing'
 import { pieDataManiInterview , pieDataManiTotal } from '../../components/Utilities/ChartDataManipulation/pieDataManipulation'
 import PieChart from '../../components/reformatedCharts/PieChart'
 
-import NivoPieChart from '../../components/Utilities/GraphTypes/NivoPie'
-
 class PieData extends Component{
     constructor(props){
         super(props);

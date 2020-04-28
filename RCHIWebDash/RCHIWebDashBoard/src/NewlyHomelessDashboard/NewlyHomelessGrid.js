@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
-import {aggregateFetch, aggregateFetchbyConstants, expandOnField} from '../components/Utilities/ListManipulation/aggregateFetch'
+import { aggregateFetch } from '../components/Utilities/ListManipulation/aggregateFetch'
 
 import '../components/css/dash.css'
 import TableComponent4 from '../components/charts/TableComponent4';
-import LineGraph from '../components/charts/LineGraph';
 import PieChart2 from '../components/charts/PieChart2';
 import BarGraph from '../components/TestingBranch/BarGraph';
 import BarChart from '../components/reformatedCharts/BarChart'
 import PieChart from '../components/reformatedCharts/PieChart'
-import {Header,Segment, Grid, Container, GridColumn} from 'semantic-ui-react'
+import {Header,Segment, Grid, Container } from 'semantic-ui-react'
 import {filterList} from '../components/Utilities/ListManipulation/filter'
 import { changeVals2020 } from '../components/Utilities/ListManipulation/changeValue'
 import { pieDataManiTotal } from '../components/Utilities/ChartDataManipulation/pieDataManipulation'
 import { router } from '../components/Utilities/constants/routing';
-import { newlyHomelessStyling, ContainerWidth, seniorsUnshelteredStyling} from '../components/Utilities/styling/chartTablesStyling'
+import { newlyHomelessStyling, ContainerWidth } from '../components/Utilities/styling/chartTablesStyling'
 
 import Total from "../components/Numbers/Total";
 import PercentageDistrict from "../components/Numbers/PercentageDistrict";
