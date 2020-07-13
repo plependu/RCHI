@@ -1,8 +1,8 @@
 import pandas as pd
 import csv
-from helperFunctions import *
+from helperFunctionsObersvation import *
 
-rowList = [['Category', 'Unsheltered']]
+rowList = [['Category', 'Unsheltered', 'Extrapolation']]
 
 #! This file contains the Pit Count for households without children
 #* Preprocessing data 
@@ -17,10 +17,9 @@ Total number of persons
 Number of young adults (age 18 to 24)
 Number of adults (over age 24)
 '''
-rowList.append(['Total number of households', totalNumberHouseholds(newData)])
-rowList.append(['Total number of persons (adults & children)', totalNumberOfPersons(df,newData)])
-rowList.append(['Number of young adults (age 18 to 24)', totalNumberofYoungAdults(df,newData)])
-rowList.append(['Number of adults (over age 24)', totalNumberOfAdults(df,newData)])
+rowList.append(['Total number of households', totalNumberHouseholds(newData),extrapolationVeteranHousehold(df,newData)])
+rowList.append(['Total number of persons', totalNumberOfPersons(df,newData),extrapolationVeteranTotalPersons(df,newData)])
+rowList.append(['Total number of Veterans', getTotalVeterans(df,newData),extrapolationTotalVeterans(df,newData)])
 
 '''
 GENDER
@@ -29,10 +28,14 @@ Male
 Transgender
 Gender Non-Conforming
 '''
-genderCategory = ['Female', 'Male' ,'Transgender', 'Gender Non-Conforming']
+genderCategory = ['Female', 'Male' ,'Transgender', 'GenderNonConforming']
+extrapolationList = []
 
 for category in genderCategory:
-    rowList.append([category, totalGenderCount(df,newData,category)])
+    extrapolationList.append([category, totalGenderCount(df,newData,category), totalGenderCount(df,newData,category, 1,'Veteran')])
+
+CheckingExtrapolation(extrapolationList, df, newData, 'Veteran')
+rowList += extrapolationList
 
 '''
 ETHNICITY
@@ -42,9 +45,13 @@ Hispanic/Latino
 
 #! MUST FORM EXTRAPOLATION 
 ethnicityCategory = [('Non-Hispanic/Non-Latino', 'No'), ('Hispanic/Latino', 'Yes')]
+extrapolationList = []
 
 for title, category in ethnicityCategory:
-    rowList.append([title,totalEthnicityCount(df,newData,category)])
+    extrapolationList.append([title,totalEthnicityCount(df,newData,category),totalEthnicityCount(df,newData,category, 1,'Veteran')])
+
+CheckingExtrapolation(extrapolationList, df, newData,'Veteran')
+rowList += extrapolationList
 
 '''
 RACE
@@ -55,16 +62,20 @@ American Indian
 Native Hawaiian
 Multiple Race
 '''
-raceCategory = [('White', 'White'), ('Black or African-American', 'Black') , ('Asian', 'Asian'), ('American Indian or Alaska Native', 'AmericanIndian'), ('Native Hawaiian or Other Pacific Islander', 'NativeHawaiian'), ('Multiple Races', 'Multiple Races')]
+raceCategory = [('White', 'White'), ('Black or African-American', 'Black') , ('Asian', 'Asian'), ('American Indian or Alaska Native', 'AmericanIndian'), ('Native Hawaiian or Other Pacific Islander', 'NativeHawaiian'), ('Multiple Race', 'Multiple Race')]
+extrapolationList = []
 
 for title, category in raceCategory:
-    rowList.append([title, totalRaceCount(df,newData,category)])
-    
+    extrapolationList.append([title, totalRaceCount(df,newData,category), totalRaceCount(df,newData,category, 1,'Veteran')])
+
+CheckingExtrapolation(extrapolationList, df, newData,'Veteran')
+rowList += extrapolationList
+
 '''
 CHRONICALLY HOMELESS
 Total number of persons
 '''
-rowList.append(['Total number of persons', totalChronicallyIndividuals(df,newData)])
+rowList.append(['Total number of persons', totalChronicallyIndividuals(df,newData),totalChronicallyIndividuals(df,newData,1,'Veteran')])
 
 #* Save in CSV File
 

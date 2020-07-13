@@ -33,8 +33,10 @@ Children in households with parenting youth under age 18
 Number of parenting youth age 18 to 24
 Children in households with parenting youth age 18 to 24
 '''
-rowList.append(['Total number of parenting youth households', totalNumberHouseholds(newData)])
-rowList.append(['Total number of persons in parenting youth households', totalNumberOfPersons(df,newData)])
+rowList.append(['Total number of parenting youth households', totalNumberHouseholds(newData).totalNumberHouseholds(newData)])
+rowList.append(['Total number of persons in parenting youth households', totalNumberOfPersons(df,newData),totalNumberOfPersons(df,newData)])
+
+print("Row List: ", rowList)
 
 # rowList.append(['Total Parenting Youth (youth parents only)', totalNumberYouthParent(df, newData)]) #!
 # rowList.append(['Total Children in Parenting Youth Households', totalNumberChildrenParentYouth(df,newData)]) #!

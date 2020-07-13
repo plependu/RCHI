@@ -1,16 +1,16 @@
-Category,Unsheltered
-Total number of households,1
-Total number of children (persons under age 18,1
-Female,0
-Male,1
-Transgender,0
-Gender Non-Conforming,0
-Non-Hispanic/Non-Latino,1
-Hispanic/Latino,0
-White,0
-Black or African-American,0
-Asian,0
-American Indian or Alaska Native,1
-Native Hawaiian or Other Pacific Islander,0
-Multiple Races,0
-Total number of persons,0
+Category,Unsheltered,Extrapolation
+Total number of households,9,9
+Number of children (under age 18),12,12
+Female,3,3
+Male,9,9
+Transgender,0,0
+GenderNonConforming,0,0
+Non-Hispanic/Non-Latino,6,7
+Hispanic/Latino,5,5
+White,7,7
+Black or African-American,4,4
+Asian,0,0
+American Indian or Alaska Native,1,1
+Native Hawaiian or Other Pacific Islander,0,0
+Multiple Race,0,0
+Total number of persons,0,0

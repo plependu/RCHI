@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 #* Household Filter Functions
 def get_Total_Households_AdultsandChildren(originalData):
     total_adults = originalData.loc[lambda df:\
@@ -29,7 +28,7 @@ def get_Total_Households_WithoutChildren(originalData):
                ,['ParentGlobalID']]\
                    .drop_duplicates(subset='ParentGlobalID')
 
-    set_diff_df = total_adults.merge(total_children, indicator=True, how="left")[lambda x: x._merge=='left_only'].drop('_merge',1).drop_duplicates()
+    set_diff_df = total_adults.merge(total_children, indicator=True, how="left")[lambda x: x._merge=='left_only'].drop('_merge',1).drop_duplicates(subset='ParentGlobalID')
 
     return set_diff_df
 
@@ -80,6 +79,12 @@ def get_Total_Households_VeteransWithoutChildren(originalData):
     
     return  set_diff_df
 
+def getTotalVeterans(originalData, newData):
+    totalVeterans = originalData.loc[lambda df: ((df['Age As Of Today'] >= 18) & (df['United States Armed Forces'] == 'Yes') & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
+        .isin(newData['ParentGlobalID']).sum()
+
+    return totalVeterans
+
 #* Unaccompanied Youth Households Filter Function
 def get_Total_Households_UnaccompaniedYouth(originalData):
     total_Adults = originalData.loc[lambda df: ((df['Household Survey Type'] == 'Interview') & (df['Age As Of Today'] > 24)),['ParentGlobalID']].drop_duplicates(subset='ParentGlobalID')
@@ -107,7 +112,9 @@ def totalNumberHouseholds(newData):
     return newData.shape[0]
 
 def totalNumberOfPersons(originalData, newData):
-    totalPersons = originalData['ParentGlobalID'].isin(newData['ParentGlobalID']).sum()
+    # totalPersons = originalData['ParentGlobalID'].isin(newData['ParentGlobalID']).sum()
+
+    totalPersons = totalNumberOfAdults(originalData,newData) + totalNumberofYoungAdults(originalData,newData) + totalNumberOfChildren(originalData,newData)
 
     return totalPersons
 
@@ -135,21 +142,20 @@ def totalNumberYouthParent(df,newData):
     return None
 
 #* Gender Counts
-def totalGenderCount(originalData,newData,category):
+def totalGenderCount(originalData,newData,category,extrapolate=None):
     totalCount = originalData.loc[lambda df: ((df['Gender'] == category) & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
         .isin(newData['ParentGlobalID']).sum()
-
-    return totalCount
+    return extrapolation(originalData,newData,"Gender",totalCount) + totalCount if extrapolate else totalCount
 
 #* Ethnicity Counts
-def totalEthnicityCount(originalData,newData,category):
+def totalEthnicityCount(originalData,newData,category,extrapolate=None):
     totalCount = originalData.loc[lambda df: ((df['Ethnicity'] == category) & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
         .isin(newData['ParentGlobalID']).sum()
 
-    return totalCount
+    return extrapolation(originalData,newData,"Ethnicity",totalCount) + totalCount if extrapolate else totalCount
 
 #* Race Counts
-def totalRaceCount(originalData,newData,category):
+def totalRaceCount(originalData,newData,category,extrapolate=None):
     if category == 'Multiple Race':
         totalCount = originalData.loc[lambda df: ((df['Race'].str.contains(pat=',')) & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
             .isin(newData['ParentGlobalID']).sum()
@@ -157,7 +163,7 @@ def totalRaceCount(originalData,newData,category):
         totalCount = originalData.loc[lambda df: ((df['Race'] == category) & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
             .isin(newData['ParentGlobalID']).sum()
 
-    return totalCount
+    return extrapolation(originalData,newData,"Race",totalCount) + totalCount if extrapolate else totalCount
 
 #* Chronically Homeless
 def totalChronicallyHouseholds(originalData,newData):
@@ -196,3 +202,31 @@ def totalAdultsDomesticViolence(originalData):
     totalCount = originalData.loc[lambda df:((df['Domestic Violence Victim'] == 'Yes') &(df['ParentGlobalID'].notnull()) ),['ParentGlobalID']]
 
     return totalCount.shape[0]
+
+#* Extrapolation Helper Functions
+def totalUnknown(originalData,newData, category):
+    totalCount = originalData.loc[lambda df: ((df[category] == 'DoesntKnow') & (df['ParentGlobalID'].notnull())),['ParentGlobalID']]['ParentGlobalID']\
+        .isin(newData['ParentGlobalID']).sum()
+    return totalCount
+
+def extrapolation(originalData, newData, category, totalCount):
+    totalUnknownCount= totalUnknown(originalData,newData,category)
+    totalKnown = totalNumberOfPersons(originalData,newData) -  totalUnknownCount
+    return int(round((totalCount / totalKnown) *  totalUnknownCount)) if totalKnown else 0
+
+def CheckingExtrapolation(extrapolationList, originalData, newData):
+    totalPersons = totalNumberOfPersons(originalData,newData)
+    extrapolatedSum = 0
+    maxCategoryIndex = None
+    maxCategoryValue = -1
+    for idx, element in enumerate(extrapolationList):
+        extrapolatedSum += element[2]
+        if(maxCategoryValue < element[2]):
+            maxCategoryValue = element[2]
+            maxCategoryIndex = idx
+    
+    if extrapolatedSum != totalPersons:
+        extrapolationList[maxCategoryIndex][2] += 1
+    
+    return None
+    

@@ -1,18 +1,17 @@
-Category,Unsheltered
-Total number of households,109
-Total number of persons (adults & children),131
-Number of young adults (age 18 to 24),5
-Number of adults (over age 24),126
-Female,20
-Male,107
-Transgender,0
-Gender Non-Conforming,0
-Non-Hispanic/Non-Latino,91
-Hispanic/Latino,35
-White,83
-Black or African-American,19
-Asian,2
-American Indian or Alaska Native,3
-Native Hawaiian or Other Pacific Islander,2
-Multiple Races,0
-Total number of persons,46
+Category,Unsheltered,Extrapolation
+Total number of households,109,161
+Total number of persons,131,193
+Total number of Veterans,112,165
+Female,20,30
+Male,107,160
+Transgender,0,0
+GenderNonConforming,2,3
+Non-Hispanic/Non-Latino,91,139
+Hispanic/Latino,35,54
+White,83,143
+Black or African-American,19,32
+Asian,2,3
+American Indian or Alaska Native,3,5
+Native Hawaiian or Other Pacific Islander,2,3
+Multiple Race,4,7
+Total number of persons,46,68
