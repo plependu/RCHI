@@ -23,7 +23,7 @@ export default {
       defaultValue: "" ,
     },
     divHeight: { required: true, description: "Height of the Stacked Line Graph" },
-    legends: {
+    legend: {
       required: false,
       description: "Specify whether to show a legend or not",
       table: {
@@ -46,9 +46,6 @@ export default {
         "Margins around the Stacked Line Graph Chart only, does not add margins to the header/subHeader",
       defaultValue: { summary: 0 },
     },
-  legend: {
-    description: "Specify whether to show the legend"
-  },
   maxValue: { description:"Maximum Y value to be shown on the line graph",control: "number", min: 0},
   colors: { description: "Colors of the lines on the graph"},
 
