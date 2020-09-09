@@ -1,0 +1,29 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.header {
+    font-size: 1.2em;
+    font-family: 'Lato', sans-serif;
+    color: rgba(0,0,0,.6);
+    font-weight: 400;
+    text-align: center;
+  }
+.subheader {
+    font-size: 0.8em;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    color: rgba(0,0,0,.6);
+    font-weight: 400;
+  }
+
+.trends.header {
+  font-family: 'Lato', sans-serif;
+  color: black;
+  font-size: 1.3em;
+}
+
+.trends.subheader {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
