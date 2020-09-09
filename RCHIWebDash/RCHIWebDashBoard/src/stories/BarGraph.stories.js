@@ -1,11 +1,11 @@
 import React from 'react';
 import BarGraph from '../charts/BarGraph';
-
+import {colors} from '../components/Utilities/styling/colors.js';
 export default {
   title: 'Bar Graph',
   component: BarGraph,
   decorators: [
-    (Story) => (<div style={{ height: '400px' }}><Story /></div>)],
+    (Story) => (<div style={{ height: '400px'}}><Story /></div>)],
   argTypes: {
     data: {
       description: `Array<{
@@ -40,6 +40,7 @@ const Template = (args) => <BarGraph {...args} />;
 
 export const Race = Template.bind({});
 export const SubstanceAbuse = Template.bind({});
+export const Age = Template.bind({});
 Race.args = {
   data: [
     {
@@ -112,4 +113,23 @@ SubstanceAbuse.args = {
   gridYValues: 7,
   padding: 0.6,
   boldHeader: true
+}
+
+Age.args = {
+  data: [
+    {id: "Adults", "subpopulation": "Adults", "Unsheltered": 1070, "Sheltered":513},
+    {id: "Children", "subpopulation": "Children", "Unsheltered": 25, "Sheltered":146},
+    {id: "Youth", "subpopulation": "Youth", "Sheltered": 256, "Unsheltered":70},
+  ],
+  header: "Age",
+  maxValue: 3000,
+  indexBy: "id",
+  keys: ["Unsheltered", "Sheltered"],
+  groupMode: "stacked",
+  divHeight: '15em',
+  color: colors[9],
+  tickValues: 4,
+  gridYValues: 4,
+  margin: { top: 20, right: 30, bottom: 50, left: 50 },
+  legend: false
 }

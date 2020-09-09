@@ -20,7 +20,8 @@ const BarGraph = (props) => {
     groupMode,
     divHeight,
     padding,
-    boldHeader
+    boldHeader,
+    color
   } = props;
 
   return (
@@ -37,7 +38,7 @@ const BarGraph = (props) => {
         maxValue={maxValue ? maxValue : 'auto'}
         padding={padding ? padding : 0.15}
         groupMode={groupMode}
-        colors={colors[7]}
+        colors={color? color : colors[7]}
         colorBy='id'
         defs={[
           {
@@ -125,7 +126,7 @@ BarGraph.propTypes = {
   labelSkipHeight: PropTypes.number,
   header: PropTypes.string,
   subHeader: PropTypes.string,
-  legend: PropTypes.object,
+  legend: PropTypes.bool,
   margin: PropTypes.object,
   tickValues: PropTypes.number,
   gridYValues: PropTypes.number,
