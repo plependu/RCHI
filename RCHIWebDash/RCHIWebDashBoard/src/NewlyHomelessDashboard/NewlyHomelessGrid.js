@@ -7,13 +7,7 @@ import PieChart2 from "../components/charts/PieChart2";
 import BarGraph from "../components/TestingBranch/BarGraph";
 import BarChart from "../components/reformatedCharts/BarChart";
 import PieChart from "../components/reformatedCharts/PieChart";
-import {
-  Header,
-  Segment,
-  Grid,
-  Container,
-  GridColumn,
-} from "semantic-ui-react";
+import { Header, Segment, Grid, Container } from "semantic-ui-react";
 import { filterList } from "../components/Utilities/ListManipulation/filter";
 import { changeVals2020 } from "../components/Utilities/ListManipulation/changeValue";
 import { pieDataManiTotal } from "../components/Utilities/ChartDataManipulation/pieDataManipulation";
@@ -21,7 +15,6 @@ import { router } from "../components/Utilities/constants/routing";
 import {
   newlyHomelessStyling,
   ContainerWidth,
-  seniorsUnshelteredStyling,
 } from "../components/Utilities/styling/chartTablesStyling";
 
 import Total from "../components/Numbers/Total";
@@ -53,115 +46,6 @@ export default class NewlyHomelessGrid extends Component {
       Tables: Tables,
       rendered: true,
     });
-  }
-
-  renderDashboard() {
-    return (
-      <div className="container my-2">
-        <Segment>
-          <Header size="huge" textAlign="center">
-            Unsheltered - Newly Homeless
-            <h3>
-              <b>Interview Only</b>
-            </h3>
-            <Header sub> 2020 Riverside County Pit Count</Header>
-          </Header>
-        </Segment>
-
-        <div className="row dash-row">
-          <div className="col-sm-8 dash-col-com">
-            <div className="gen-grid">
-              <div className="gen-r2">
-                <div className="gen-r2c2">
-                  <TableComponent4
-                    data={changeVals2020(
-                      filterList(
-                        this.state.Tables[
-                          router.activeYear + "/NewlyHomelessByCity"
-                        ]["Age"],
-                        "subpopulation",
-                        FILTER_COLUMNS
-                      )
-                    ).sort((a, b) => {
-                      return b.total - a.total;
-                    })}
-                    tableName="Age"
-                    height="120%"
-                    percentage_flag={1}
-                  />
-                </div>
-                <div className="gen-r2c1">
-                  <div className="gen-r2c1r1">
-                    <p className="component-header">Ethnicity</p>
-                    <PieChart2
-                      data={filterList(
-                        this.state.Tables[
-                          router.activeYear + "/NewlyHomelessByCity"
-                        ]["Ethnicity"],
-                        "subpopulation",
-                        ["Total"]
-                      )}
-                      margin={{ top: 30, bottom: 20 }}
-                    />
-                  </div>
-                  <div className="gen-r2c1r2">
-                    <p className="component-header">Gender</p>
-                    <PieChart2
-                      data={filterList(
-                        this.state.Tables[
-                          router.activeYear + "/NewlyHomelessByCity"
-                        ]["Gender"],
-                        "subpopulation",
-                        ["Total"]
-                      )}
-                      margin={{ top: 30, bottom: 20 }}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  position: "relative",
-                  display: "grid",
-                  height: "100%",
-                }}
-              >
-                <p className="component-header">Race</p>
-                <BarGraph
-                  data={
-                    this.state.Tables[
-                      router.activeYear + "/NewlyHomelessByCity"
-                    ]["Race"]
-                  }
-                  indexBy={"subpopulation"}
-                  keys={["total"]}
-                  margin={{ top: 50, right: 30, bottom: 50, left: 50 }}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4 dash-col-com">
-            {/*<span className="component-header">Unsheltered Only Demographic</span> */}
-            <div className="gen-r2">
-              <TableComponent4
-                data={changeVals2020(
-                  filterList(
-                    this.state.Tables[
-                      router.activeYear + "/NewlyHomelessByCity"
-                    ]["Subpopulations"],
-                    "subpopulation",
-                    FILTER_COLUMNS
-                  )
-                )}
-                tableName="Subpopulations"
-                height="120%"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
   }
 
   dashboard() {
