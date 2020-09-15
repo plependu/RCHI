@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import SupervisorialDistricts from "./SupervisoralDistrictDash/SupervisorialDistricts";
-import CityTables from "./CityTables/CityTables";
+import CityTables from "../City Tables/CityTables";
 import SeniorsDashboard from "./../SeniorsDashBoard/SeniorsDashBoard";
 
 import UnshelteredSubpopulationTrends from "../Unsheltered Trends/UnshelteredSubpopulationTrends";
