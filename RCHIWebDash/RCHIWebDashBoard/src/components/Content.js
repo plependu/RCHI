@@ -7,7 +7,8 @@ import SeniorsDashboard from "./../SeniorsDashBoard/SeniorsDashBoard";
 
 import UnshelteredSubpopulationTrends from "../Unsheltered Trends/UnshelteredSubpopulationTrends";
 import UnsheleteredSupervisoryDistricts from "../Unsheltered Supervisory District/UnshelteredSupervisoryDistricts";
-import LLMap from "./map/map";
+// import LLMap from "./map/map";
+import LLMap from "Map Dashboard/map";
 
 import GeneralPieChart from "./charts/PieChart";
 import GeneralTable from "../Unsheltered Sheltered General/GeneralTable";
