@@ -5,9 +5,10 @@ import {Container} from 'semantic-ui-react'
 import TrendNavBar from '../components/Utilities/tools/NavigationBar'
 import Header from './PageLayout/Utilites/Header'
 
-import TrendPage1 from './PageLayout/LayoutPage1' 
-import TrendPage2 from './PageLayout/LayoutPage2' 
-import TrendPage3 from './PageLayout/LayoutPage3' 
+
+import Trend1 from 'components/layouts/grids/Trend1'
+import Trend2 from 'components/layouts/grids/Trend2'
+import Trend3 from 'components/layouts/grids/Trend3'
 
 import { unshelteredTrendsStyling, ContainerWidth } from '../components/Utilities/styling/chartTablesStyling'
 
@@ -23,7 +24,7 @@ class UnshelteredSubpopulationTrends extends Component{
         this.state = {
             currentPage : 1,
             trendsSelected: ['Veteran','Youth (18-24)','Chronically Homeless','Families with Children','Elderly (>62)'],
-            pageDisplayed: <TrendPage1/>,
+            pageDisplayed: <Trend1/>,
             totalPages:3,
             // maxValue = {Veteran: }
         }
@@ -80,9 +81,9 @@ class UnshelteredSubpopulationTrends extends Component{
     }
 
     PageHandler(){
-        if(this.state.currentPage === 1) return <TrendPage1 trendsSelected={this.TrendSelectedHandler()}/>
-        else if(this.state.currentPage === 2) return <TrendPage2 trendsSelected={this.TrendSelectedHandler()}/>
-        else return <TrendPage3 trendsSelected={this.TrendSelectedHandler()}/>
+        if(this.state.currentPage === 1) return <Trend1 trendsSelected={this.TrendSelectedHandler()}/>
+        else if(this.state.currentPage === 2) return <Trend2 trendsSelected={this.TrendSelectedHandler()}/>
+        else return <Trend3 trendsSelected={this.TrendSelectedHandler()}/>
     }
 
 

@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 import SupervisorialDistricts from "./SupervisoralDistrictDash/SupervisorialDistricts";
 import CityTables from "../City Tables/CityTables";
-import SeniorsDashboard from "./../SeniorsDashBoard/SeniorsDashBoard";
 
 import UnshelteredSubpopulationTrends from "../Unsheltered Trends/UnshelteredSubpopulationTrends";
 import UnsheleteredSupervisoryDistricts from "../Unsheltered Supervisory District/UnshelteredSupervisoryDistricts";
@@ -16,8 +15,10 @@ import CityTable from "../Unsheltered Cities/CityTable";
 import errorPage from "./404Page";
 
 import UnsheleteredVsSheltered from "../Unsheltered vs Sheltered/UnshelteredVsSheltered";
-import NewlyHomelessGrid from "../NewlyHomelessDashboard/NewlyHomelessGrid";
+import NewlyHomelessDashboard from "../NewlyHomelessDashboard/NewlyHomeless";
 import { router } from "../components/Utilities/constants/routing";
+
+import SeniorsDashboard from "SeniorsDashBoard/SeniorsDashBoard";
 
 //import { aggregateFetchbyConstants } from './Utilities/ListManipulation/aggregateFetch';
 
@@ -74,7 +75,7 @@ export default class Content extends Component {
                 exact
                 path="/NewlyHomeless"
                 component={() => (
-                  <NewlyHomelessGrid
+                  <NewlyHomelessDashboard
                     router={router}
                     Tables={this.state.Tables}
                   />
@@ -90,6 +91,7 @@ export default class Content extends Component {
                   />
                 )}
               />
+
               <Route
                 exact
                 path="/UnshelteredTrends"
@@ -131,6 +133,7 @@ export default class Content extends Component {
                   <LLMap router={router} Tables={this.state.Tables} />
                 )}
               />
+
               <Route component={errorPage} />
             </Switch>
           </div>
