@@ -7,6 +7,7 @@ export const newlyHomelessStyling = {
     tableName: "Age",
     tableHeight: "100%",
     divHeight: "20.8em",
+    percentage_flag: "1",
     padding: {},
   },
   "Living Situation": {
@@ -41,10 +42,11 @@ export const newlyHomelessStyling = {
     divHeight: "25em",
     header: "Race",
   },
-  Household: {
+  Households: {
     tableName: "Household Composition",
     tableHeight: "100%",
     divHeight: "25em",
+    percentage_flag: "1",
   },
 };
 
@@ -89,9 +91,7 @@ export const unshelteredTrendsStyling = {
   "Elderly (>62)": {
     header: "Elderly (≥62)",
     subHeader: "Interview Only",
-    footnote: [
-      "≥62 due to HUD definition",
-    ],
+    footnote: ["≥62 due to HUD definition"],
     divHeight: "30em",
     margin: { top: 20, right: 20, bottom: 80, left: 30 },
     colors: colors[7],
@@ -376,7 +376,7 @@ export const seniorsUnshelteredStyling = {
     divHeight: "25em",
     header: "Race",
   },
-  Household: {
+  Households: {
     tableName: "Household Composition",
     tableHeight: "100%",
     divHeight: "25em",
