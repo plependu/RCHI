@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // from packages
-import { Header, Segment, Grid, Container } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import Select from "react-select";
 
 // components
@@ -13,19 +13,22 @@ import TableComponent4 from "../components/charts/TableComponent4.js";
 import BarGraph from "../components/reformatedCharts/BarChart";
 
 // helper functions
-import { aggregateFetch, expandOnField } from "../components/Utilities/ListManipulation/aggregateFetch";
+import {
+  aggregateFetch,
+  expandOnField,
+} from "../components/Utilities/ListManipulation/aggregateFetch";
 import { filterList } from "../components/Utilities/ListManipulation/filter";
 import { changeVals2020 } from "../components/Utilities/ListManipulation/changeValue";
 import { pieDataManiTotal } from "../components/Utilities/ChartDataManipulation/pieDataManipulation";
 import { router } from "../components/Utilities/constants/routing";
 
-// styling 
+// styling
 import { unshelteredCitiesStyling } from "../components/Utilities/styling/chartTablesStyling";
 import "./DottedBox.css";
 import "../components/css/dash.css";
 
 // constants
-import { FILTER_COLUMNS, urls } from './constants'
+import { FILTER_COLUMNS, urls } from "constants/CityTable";
 
 export default class CityTable extends Component {
   constructor(props) {
@@ -50,14 +53,14 @@ export default class CityTable extends Component {
 
       newData.push(newObject);
     }
-    return newData.sort((a,b) => {
-      if(a.label > b.label){
-        return 1
+    return newData.sort((a, b) => {
+      if (a.label > b.label) {
+        return 1;
       }
-      if(b.label > a.label){
+      if (b.label > a.label) {
         return -1;
       }
-      return 0
+      return 0;
     });
   }
 
@@ -148,9 +151,7 @@ export default class CityTable extends Component {
 
   runGraphs() {
     const { cityChoice, selectOptions, Tables } = this.state;
-    const mainRoute = router.host + "/" +
-      router.root + "/" +
-      router.activeYear;
+    const mainRoute = router.host + "/" + router.root + "/" + router.activeYear;
 
     return (
       <div>
@@ -171,13 +172,13 @@ export default class CityTable extends Component {
               />
             </div>
           </div>
-          <br/>
+          <br />
           <div className="row dash-row">
             <div className="col-lg ct-number">
               <span className="component-header">
                 Total Unsheltered Individuals
               </span>
-              <br/>
+              <br />
               <span className="component-header">
                 <Total
                   height={400}
@@ -186,23 +187,20 @@ export default class CityTable extends Component {
                     "/SubpopulationsByCity/?search=Individuals+" +
                     cityChoice
                   }
-                  cityChoice ={cityChoice}
+                  cityChoice={cityChoice}
                 />
               </span>
             </div>
             <div className="col-lg ct-number">
-              <span
-                className="component-header"
-                style={{ marginBottom: 20 }}
-              >
-                Percent of <br/> District{" "}
+              <span className="component-header" style={{ marginBottom: 20 }}>
+                Percent of <br /> District{" "}
                 {
-                  Tables[
-                    router.activeYear + "/SubpopulationsByCity"
-                  ][cityChoice]["Individuals"][0].district
+                  Tables[router.activeYear + "/SubpopulationsByCity"][
+                    cityChoice
+                  ]["Individuals"][0].district
                 }
               </span>
-              <br/>
+              <br />
               <span className="component-header">
                 <PercentageDistrict
                   height={400}
@@ -211,24 +209,21 @@ export default class CityTable extends Component {
                     "/SubpopulationsByCity/?search=Individuals+" +
                     cityChoice
                   }
-
-                  districtUrl = {
+                  districtUrl={
                     mainRoute +
                     "/CityTotalByYear/?search=" +
-                    Tables[
-                      router.activeYear + "/SubpopulationsByCity"
-                    ][cityChoice]["Individuals"][0].district
+                    Tables[router.activeYear + "/SubpopulationsByCity"][
+                      cityChoice
+                    ]["Individuals"][0].district
                   }
-                  activeYear = {router.activeYear}
-                  cityChoice = {cityChoice}
+                  activeYear={router.activeYear}
+                  cityChoice={cityChoice}
                 />
               </span>
             </div>
             <div className="col-lg ct-number">
-              <span className="component-header">
-                Chronically Homeless
-              </span>
-              <br/>
+              <span className="component-header">Chronically Homeless</span>
+              <br />
               <span className="component-header">
                 <Number
                   height={400}
@@ -241,28 +236,24 @@ export default class CityTable extends Component {
               </span>
             </div>
             <div className="col-lg ct-number">
-              <span className="component-header">
-                Individuals Observed
-              </span>
-              <br/>
+              <span className="component-header">Individuals Observed</span>
+              <br />
               <span className="component-header">
                 {
-                  Tables[
-                    router.activeYear + "/SubpopulationsByCity"
-                  ][cityChoice]["Individuals"][0].observation
+                  Tables[router.activeYear + "/SubpopulationsByCity"][
+                    cityChoice
+                  ]["Individuals"][0].observation
                 }
               </span>
             </div>
             <div className="col-lg ct-number">
-              <span className="component-header">
-                Individuals Interviewed
-              </span>
-              <br/>
+              <span className="component-header">Individuals Interviewed</span>
+              <br />
               <span className="component-header">
                 {
-                  Tables[
-                    router.activeYear + "/SubpopulationsByCity"
-                  ][cityChoice]["Individuals"][0].interview
+                  Tables[router.activeYear + "/SubpopulationsByCity"][
+                    cityChoice
+                  ]["Individuals"][0].interview
                 }
               </span>
             </div>
@@ -274,9 +265,9 @@ export default class CityTable extends Component {
                   <TableComponent4
                     data={changeVals2020(
                       filterList(
-                        Tables[
-                          router.activeYear + "/SubpopulationsByCity"
-                        ][cityChoice]["Subpopulations"],
+                        Tables[router.activeYear + "/SubpopulationsByCity"][
+                          cityChoice
+                        ]["Subpopulations"],
                         "subpopulation",
                         FILTER_COLUMNS
                       )
@@ -287,9 +278,9 @@ export default class CityTable extends Component {
                 <div className="ct-r2">
                   <TableComponent4
                     data={filterList(
-                      Tables[
-                        router.activeYear + "/SubpopulationsByCity"
-                      ][cityChoice]["Living Situation"],
+                      Tables[router.activeYear + "/SubpopulationsByCity"][
+                        cityChoice
+                      ]["Living Situation"],
                       "subpopulation",
                       FILTER_COLUMNS
                     ).sort((a, b) => {
@@ -305,9 +296,9 @@ export default class CityTable extends Component {
                 <div className="ct-r1">
                   <BarGraph
                     data={filterList(
-                      Tables[
-                        router.activeYear + "/SubpopulationsByCity"
-                      ][cityChoice]["Race"],
+                      Tables[router.activeYear + "/SubpopulationsByCity"][
+                        cityChoice
+                      ]["Race"],
                       "subpopulation",
                       ["Total"]
                     )}
@@ -317,9 +308,9 @@ export default class CityTable extends Component {
                 <div className="ct-r2">
                   <BarGraph
                     data={filterList(
-                      Tables[
-                        router.activeYear + "/SubpopulationsByCity"
-                      ][cityChoice]["Gender"],
+                      Tables[router.activeYear + "/SubpopulationsByCity"][
+                        cityChoice
+                      ]["Gender"],
                       "subpopulation",
                       ["Total"]
                     )}
@@ -338,9 +329,9 @@ export default class CityTable extends Component {
                     <PieChart2
                       data={pieDataManiTotal(
                         filterList(
-                          Tables[
-                            router.activeYear + "/SubpopulationsByCity"
-                          ][cityChoice]["Ethnicity"],
+                          Tables[router.activeYear + "/SubpopulationsByCity"][
+                            cityChoice
+                          ]["Ethnicity"],
                           "subpopulation",
                           ["Total"]
                         )
@@ -353,9 +344,9 @@ export default class CityTable extends Component {
                   <TableComponent4
                     data={changeVals2020(
                       filterList(
-                        Tables[
-                          router.activeYear + "/SubpopulationsByCity"
-                        ][cityChoice]["Gender"].sort((a, b) => {
+                        Tables[router.activeYear + "/SubpopulationsByCity"][
+                          cityChoice
+                        ]["Gender"].sort((a, b) => {
                           return b.total - a.total;
                         }),
                         "subpopulation",
@@ -369,7 +360,7 @@ export default class CityTable extends Component {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     );
   }
   render() {
