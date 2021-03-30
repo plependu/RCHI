@@ -18,7 +18,7 @@ import { Link, withRouter } from 'react-router-dom';
 const links = [
   { name: 'General Dashboard',                link: '/' },
   { name: 'Unsheltered vs Sheltered',     link: '/UnshelteredvsSheltered' },
-  { name: 'First Time Homeless and COVID',               link: '/FirstTimeHomelessAndCOVID' },
+  { name: 'Newly Homeless',               link: '/NewlyHomeless' },
   { name: 'Seniors',               link: '/SeniorsDashBoard' },
   { name: 'Unsheltered Trends',           link: '/UnshelteredTrends' },
   { name: 'Supervisorial Districts',      link: '/SupervisorialDistricts' },
